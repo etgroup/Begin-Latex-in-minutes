@@ -1,5 +1,5 @@
-English ·
-[中文](./Translation-Chinese.md) ·
+[English](./readme.md) ·
+中文 ·
 [Español](./Translation-Spanish.md) ·
 [Português](./Translation-Portuguese.md) ·
 [Français](./Translation-French.md) ·
@@ -10,68 +10,70 @@ English ·
 
 ---
 
-# Begin LaTeX in minutes
+# 学习 LaTeX 从现在开始
 
 ![](https://upload.wikimedia.org/wikipedia/commons/9/92/LaTeX_logo.svg)
 
-**Acknowledgement:** _Everything written below is from my own experience in college and after reading various materials. I am neither a professional nor expert, but a student who has great passion for the language. Anyone can open a discussion in the issue section, or a pull request in case something should be modified or added. If you consider my work valuable, a [donation](#donation) is much appreciated._
+**译者前言：** *本人尽量按照原作者原意翻译，但水平有限，如有翻译不妥之处，欢迎指正。如果您喜欢本文，欢迎分享给更多人看到。*
 
-### Table of Contents
+(**Chinese translator's Acknowledgement:** *I try to translate this guide as the original meaning of the author.But because of the level limited, if the translation is inappropriate, welcome to modified or added.If you like this guide, please share to more people.*)
 
-- [What is LaTeX?](#what-is-latex)
-- [Why use LaTeX?](#why-use-latex)
-- [Set up for LaTeX](#set-up-for-latex)
-- [First LaTeX file](#first-latex-file)
-- [A deeper look](#a-deeper-look)
-- [Multilingual usage](#multilingual-usage)
-- [Lists](#lists)
-- [Paragraph and section](#paragraph-and-section)
-- [Making a table of contents](#making-a-table-of-contents)
-- [Footnotes](#footnotes)
-- [What is a package?](#what-is-a-package)
-- [Table](#table)
-- [Adding images](#adding-images)
-- [Insert code into LaTeX](#insert-code-into-latex)
-- [Multiple files in LaTeX](#Multiple-files-in-LaTeX)
-- [Additional Tools](#additional-tools)
+**前言:** *以下所写均来自于作者的大学经历以及阅读了很多材料之后的感悟。作者不是这方面的专家，仅仅是一个对这门语言有极大热情的学生。任何人都可以在问题分区（issue）中开启新的讨论，或者对需要修改或添加内容申请修改（pull request ）。如果你认为作者的工作是有价值的，欢迎进行[捐赠](#donation)。*
 
-## What is LaTeX?
+### 目录
+* [LaTeX 是什么？](#latex-是什么)
+* [为什么要用 LaTeX？](#为什么要用-latex)
+* [安装 LaTeX](#安装-latex)
+* [第一个 LaTeX 文件](#第一个-latex-文件)
+* [深入理解 Hello World](#深入理解-hello-world)
+* [使用多种语言](#使用多种语言)
+* [列表](#列表)
+* [段落与章节](#段落与章节)
+* [插入目录](#插入目录)
+* [脚注](#脚注)
+* [什么是宏包](#什么是宏包)
+* [表格](#表格)
+* [添加图像](#添加图像)
+* [在 LaTeX 中插入代码](#在-latex-中插入代码)
+* [分割为多个 LaTeX 文件](#分割为多个-latex-文件)
+* [更多工具](#更多工具)
 
-LaTeX, which is pronounced «Lah-tech» or «Lay-tech» (to rhyme with «blech»), is a document preparation system for high-quality typesetting. It is most often used for medium-to-large technical or scientific documents but it can be used for almost any form of publishing.
+## LaTeX 是什么？
 
-## Why use LaTeX?
+LaTeX 是一种用于进行高质量排版的文档处理系统。LaTeX 读作 «Lah-tech» 或者 «Lay-tech» (和 «blech» 的韵母一样)。它被广泛的用于排版大中型科学技术文献，除此之外，它几乎能用于排版任何形式的出版物。
 
-- LaTeX is free, multiplatform.
-- LaTeX is just a text document (which can be opened by any text editor), readily converted to PDF.
-- LaTeX separates content and style. Style once, then focus on content.
-- The workflow is faster compared to MS Word.
-- LaTeX is widely used for scientific topics.
-- LaTeX is simply the best option when it comes to typesetting math expressions.
+## 为什么要用 LaTeX？
 
-> LaTeX doesn't come without drawbacks, but is still worth learning.
+* LaTeX 是免费、多平台的。
+* LaTeX 只是一种文本文件(可以用任何文本编辑器打开)，并且能很容易的转换成 PDF。
+* LaTeX 的内容和格式是分离的。一旦设定好风格，就能专注于内容。
+* 与 MS Word 相比，工作流程更快。
+* LaTeX 被广泛的用于科学主题中。
+* LaTeX 是排版数学公式的最佳选择。
 
-## Set up for LaTeX
+> LaTeX 并不是没有缺点，但它仍然值得学习。
 
-You will need the following things:
+## 安装 LaTeX
 
-1. _LaTeX Distribution._
-   I am using [MiKTeX](https://miktex.org/about) for Windows.
-2. _LaTeX Editor._
-   I am using [TeXMaker](http://www.xm1math.net/texmaker/) for easy editing, although any text editor can create or change a LaTeX file.
-3. _PDF viewer._ (optional)
-   Any PDF viewer out there is fine. This is for viewing your result.
+你将需要以下几个软件：
 
-In addition, you need to choose a [compiler](#additional-tools). The default compiler of most
-editors is pdfLaTeX, but if you need support for Unicode or TTF/OTF fonts from
-your system, use LuaLaTeX.
+1. *LaTeX 的发行版：*
+我使用 windows 版的 [MiKTeX](https://miktex.org/about)。
+2. *LaTeX 编辑器：*
+我使用 [TeXMaker](http://www.xm1math.net/texmaker/) 来编辑文件，当然使用任何一个文本编辑器均可以创建并修改 LaTeX 文件。
+1. *PDF 查看器：* (可选)
+任何 PDF 查看器均可，取决于你的喜好。
 
-Or you can choose a simple online solution like [ShareLaTeX](https://www.sharelatex.com/).
-Please look at [Additional Tools](#additional-tools) for a wider variety of choices.
+另外，你需要选择一个[编译器](#更多工具)。大多数编辑人员的默认编译器是 pdfLaTeX ，但如果你想在你的系统中使用 Unicode 或 TTF / OTF 字体，你需要 LuaLaTeX 。
 
-## First LaTeX file
+或者你可以选择在线软件，比如 [ShareLaTeX](https://www.sharelatex.com/)，
+你可以在[更多工具](#更多工具)一节中看到更多选择。
 
-Let's do the traditional **Hello World** in **LaTeX**.
-If you have installed **TexMaker**, first create a new file with ending `.tex`. Then type in the following code below to render "Hello World!" and run "quick build". For other LaTeX editors, it should also be easy to follow the same procedure.
+## 第一个 LaTeX 文件
+
+让我们用 **LaTeX** 中编写传统的 **Hello World**。
+如果你装好了 **TexMaker** ，首先创建一个后缀名为 `.tex` 的新文件。然后在文件里敲入如下代码并运行快速构建( quick build )。对于其他 LaTeX 编辑器，也应该很容易遵循相同的过程。
+
 
 ```tex
 \documentclass[a4paper]{article}
@@ -83,33 +85,32 @@ Hello World !  % This is your content
 \end{document}
 ```
 
-It should look like this in TexMaker:
+在 TexMaker 中完成后的结果应该和下图一样：
 ![](http://i.imgur.com/ZuD5N6U.png)
 
-## A deeper look
+## 深入理解 Hello World
 
-:eyes: A deeper look into your first LaTeX file easily shows that:
+:eyes: 仔细看你的第一个 LaTeX 文件你会发现：
+* 第一行告诉解释器：你正在使用的纸张大小为 A4，文档样式为**文章(article)**。你将来可能还会使用到**报告(report)**、 **书籍(book)** 等样式。
+* 正文内容被包裹在 **\begin{document}** 和 **\end{document}** 中。这就是文件的核心，就像 *java* 和 *C++* 中的 `main()` 一样，没有它们，就无法正确的渲染文档。
+* 在 begin 和 end 之间就是你自己要写的内容（在样例中就是 `Hello World !` ）。
+* **百分号**(%)是 LaTeX 的注释符号，之后的内容会被忽略。
 
-- The first line tells the Interpreter that you are working on an **article** with the size of the a4. Other types of document you might be working with in the future are **report**, **book**... and so on.
-- A document is wrapped by the **\begin{document}** and **\end{document}**. Think of this as the heart of the document, as the `main()` in _java_ or _C++_... without which the document can't be rendered.
-- The part between begin and end ( which, in this case, is `Hello World` ) is simply your own content.
-- A **percent sign** (%) denotes your comment, which LaTeX will ignore.
+#### :zap: 注意 :zap:
 
-#### :zap: Attention :zap:
-
-- Looking back at **\begin{document}**, **\end{document}**, **\documentclass[a4paper]{article}**. You may notice the pattern now. These are called **Typesetting Commands** ( which are usually preceded by “\” ) and **arguments** ( placed inside curly braces “{}” ). LaTeX are basically normal texts, but powered by these commands.
-- While you are following this guide, everything will work smoothly. However, in the future, should there be any problems, **don't panic**. The error reports are human-friendly and readable. If you can't resolve them, a search tool like Google may be your best friend.
-- Some characters are **predefined with special meanings in LaTeX. You may want to use backslashes (\\) in front of these characters for proper output.**
+* 回顾这三部分：**\begin{document}**、**\end{document}**、**\documentclass[a4paper]{article}**，你大概注意到了这种样式，它们被称为**排版命令(Typesetting Commands)**(通常以 “\” 开头)和**参数(arguments)**(放在一对花括号 “{}” 之间)。 LaTeX 是由这些命令驱动的普通格式的文本。
+* 如果你按照该指南的步骤进行操作，一切都会很顺畅。但将来你可能会遇到一些错误，**不要惊慌**，错误报告写的非常明白且容易理解。如果你不能解决这些问题，谷歌等搜索工具会是你的好伙伴。
+* 一些特殊字符**在 LaTeX 中被预定义了。如果你想得到正确的输出，需要在这些字符之前加上反斜杠(\\)。**
 
 ![](http://i.imgur.com/9d0bXHH.png)
 
-## Multilingual usage
+## 使用多种语言
 
-**Some languages won't work right out of the box. To use TeX with other languages, you have some options.**
+**有些语言不能开箱即用。为了在 TeX 中使用其他语言，你有这些选择：**
 
-#### :white_check_mark: First method :white_check_mark:
+#### :white_check_mark: 第一种方法 :white_check_mark:
 
-The first method is including ["packages"](#what-is-a-package) (You will learn about it later) because pdfLaTeX, the default compiler, is limited to 256 characters and various encoding issues. For example:
+第一种方法是导入["宏包(packages)"](#什么是宏包)(你会在之后学到)。因为默认的编译器 pdfLaTeX 限制为 256 个字符并且有很多编码问题。例如：
 
 ```tex
 \documentclass[a4paper]{article}
@@ -124,16 +125,15 @@ Xin chào thế giới. This is Hello World in Vietnamese.
 \end{document}
 ```
 
-Here we use the packages `usepackage[T5]{fontenc}` and `usepackage[utf8]{inputenc}`. This is really simple to understand as the package will import font encoders to display your content correctly. If you are using TexMaker this is what the above code display:
+这里我们使用了 `usepackage[T5]{fontenc}` 和 `usepackage[utf8]{inputenc}` 宏包。这种方法非常容易理解，用宏包将字体导入字体编码器并正确显示你的内容。如果你正在使用 TexMaker ，那么代码显示的结果将会如下图所示：
 
 ![](http://i.imgur.com/UQEewYi.png)
 
-vs without the packages :package::
+对比没有导入宏包 :package: 的情况：
 
-![](http://i.imgur.com/xvzrQX2.png)
+![](http://i.imgur.com/xvzrQX2.png)  
 
-:umbrella: A tricky situation is dealing with Chinese-Japanese-Korean. Here, `usepackage{CJKutf8}` with `\begin{CJK}{UTF8}` and `\end{CJK}` comes in very handy. Here's Japanese :jp::
-
+:umbrella: 这有一个处理中日韩字符的小技巧，使用 `usepackage{CJKutf8}` ， `\begin{CJK}{UTF8}` 和 `\end{CJK}` 非常便利。这里有一个日语版本 :jp: :
 ```tex
 \documentclass[a4paper]{article}
 \usepackage{CJKutf8}
@@ -143,18 +143,17 @@ vs without the packages :package::
 \begin{CJK}{UTF8}{min}
 この記事を読んでいただきありがとうございます。
 %Thank you for reading this article.
-\end{CJK}
+\end{CJK} 
 
 \end{document}
 ```
 
-As easy as eating :sushi: and :bento::
+就像吃 :sushi: 和 :bento: 一样简单: 
 
-![](http://i.imgur.com/vAN1WUi.png)
+![](http://i.imgur.com/vAN1WUi.png)  
 
-#### :white_check_mark: Second method :white_check_mark:
-
-Another method is achievable if you switch your TeX compiler to [LuaLaTeX](#additional-tools) (or [XeLaTeX](#additional-tools)). Using `fontspec` and `polyglossia`, Unicode will work out of the box:
+#### :white_check_mark: 第二种方法 :white_check_mark:
+另一种方法是切换你的 TeX 编译器到 [LuaLaTeX](#更多工具) (or [XeLaTeX](#更多工具))。使用 `fontspec` 和 `polyglossia`, 然后你就可以直接使用 Unicode :
 
 ```tex
 \documentclass[a4paper]{article}
@@ -170,26 +169,22 @@ Xin chào thế giới. This is Hello World in Vietnamese.
 \end{document}
 ```
 
-The default font (Latin Modern) does not support all characters. You can, however, use almost any font installed on your system by uncommenting the `\setmainfont` line. (TTF and OTF fonts are fully supported).
+默认字体(Latin Modern)不支持全部字符，但是你可以通过取消 `\setmainfont` 行的注释，使用系统上安装的绝大多数字体（完全支持 TTF 和 OTF 字体）。
 
-## Lists
+## 列表
 
-:straight_ruler: It is very important to organize your document well. Thus, let's start by putting your items into a list.  
-Two common types of lists are **unordered** and **ordered** list. Each of them can be handled with ease in LaTeX document:
-
-- Unordered List  
-  Unordered list only needs **"itemize"**. (pun intended)
-
+:straight_ruler: 保持你的文件结构清晰是很重要的，因此，让我们从项目列表开始学起。
+两个常用的项目列表类型是**有序**和**无序**列表。LaTeX 可以轻松的处理两种列表：
+* 无序列表
+无序列表只需要 **"itemize"**。(双关语)
 ```tex
 \begin{itemize}
 \item Item.
 \item Another Item.
 \end{itemize}
-```
-
-- Ordered List  
-  Ordered list, however, need us to **"enumerate"** them. (pun intended)
-
+```  
+* 有序列表
+有序列表需要我们通过 **"enumerate"** 枚举他们。(双关语)
 ```tex
 \begin{enumerate}
 \item First Item.
@@ -197,60 +192,59 @@ Two common types of lists are **unordered** and **ordered** list. Each of them c
 \end{enumerate}
 ```
 
-Here's how two types of list display in the output:
+以下是两种类型列表的输出样式：
 
 ![](http://i.imgur.com/jzN4RWm.png)
 
-## Paragraph and section
+## 段落与章节
 
-:blue_book: We begin a section with `\section` and a paragraph with `\paragraph`.
-:orange_book: You can also add subsection with `\subsection` and subparagraph with `\subparagraph`
+:blue_book: 我们用 `\section` 表示一节，用 `\paragraph` 表示一个段落。
+:orange_book: 你还可以用 `\subsection` 添加小节，用 `\subparagraph` 添加小段落。
 
 ![](http://i.imgur.com/qKbZYnG.png)
 
-## Making a table of contents
+## 插入目录
 
-:metal: It's useful to open sections and subsections with a `\tableofcontents`
+:metal: 通过插入 `\tableofcontents` 在目录中显示节和小节是非常方便的。
 
-Example:
+例如：
 
 ![](http://i.imgur.com/TBUOTRj.png)
 
-:bangbang: **Tips**: you can use `\newpage` if you want to make a new page.
+:bangbang: **小技巧**: 你可以使用 `\newpage`命令来创建新的一页。
 
-## Footnotes
+## 脚注
 
-It's as easy as pie to use footnote+label+ref to make all kinds of footnotes you want. For example:
+使用脚注 + 标签 + 参考来做各种各样的脚注，就像制作饼馅一样简单。例如：
 
 ```tex
 Hi let me introduce myself\footnote{\label{myfootnote}Hello footnote}.
 ... (later on)
 I'm referring to myself \ref{myfootnote}.
 ```
-
-:point_down: :point_down: Can you see it ? :point_down: :point_down:
+:point_down: :point_down:你能看见它吗？:point_down: :point_down:
 
 ![](http://i.imgur.com/BSYPX4C.png)
 
-:bangbang: **Tips**: you can use `\newline` to make a new line.
+:bangbang: **小技巧**: 你可以使用 `\newline` 来换行。
 
-## What is a package?
+## 什么是宏包
 
-LaTeX offers a lot of functions by default, but in some situations it can come in handy to use so called packages. To import a package in LaTeX, you simply add the `\usepackage` :package:
+LaTeX 默认提供许多函数，但在某些情况下，宏包就可以派上用场。你可以使用 `\usepackage` :package: 来导入宏包：
 
-Here is an example of using two packages for displaying math:
+这有一个使用两个宏包来显示数学公式的例子:
 
 ![](http://i.imgur.com/050nrfh.png)
 
-Even more epic is how circuits are displayed:
+宏包甚至可以用来绘制电路图:
 
 ![](http://i.imgur.com/If4lbLA.png)
 
-:construction: You should Google search more if you want a package that meets your requirements. For example, amsmath is widely used for math and has a lot of extension typeset for math, circuitikz is for circuits designing, etc.. Covering them all would be impossible for this general guide.
+:construction: 如果你有其他需求，你可以用谷歌搜索你需要的宏包。例如: amsmath 含有大量数学格式拓展并被广泛用于数学学科，circuitikz 用于电路设计等等。。。这篇通用的指南无法将这些知识全部覆盖。
 
-## Table
+## 表格
 
-A practical example :thought_balloon::
+一个实用的例子:
 
 ```tex
 \begin{table}[h!]
@@ -265,27 +259,27 @@ A practical example :thought_balloon::
 \end{table}
 ```
 
-:star2: This is what it renders :star2::
+:star2: 这是它渲染完的样式 :star2: :
 
 ![](http://i.imgur.com/XbZJJ2E.png)
 
-Now let's take a closer look :eyes::
+现在让我们再回顾一下 :eyes: :
 
-- For tables, first we need a table environment, which is why we have `\begin{table}` and `\end{table}`.
-- You will learn about h! later in the image section. It goes with `\centering` to keep the table at the center of the page.
-- Caption is for describing. Label is for tagging. You will see these more in image section.
-- Tabular is the most important part. A table environment always needs a tabular environment inside.
-  - the part `{l|c||r}` is where we format the content inside the table. Here we can see:
-    - l or c or r means that the content inside each cell will be left-aligned or center-aligned or right-aligned, respectively.
-    - the vertical slash | or || is actually the format of the vertical lines/borders inside the table's columns.
-  - 1 & 2 & 3 => 1 2 3 are the contents of each cells. the ampersand & is used to separate the content of each cell in a row.
-  - a `\hline` actually adds a horizontal line to separate each row.
+* 对于表格，首先我们需要一个以 `\begin{table}` 开头和  `\end{table}` 结尾的表格环境。
+* 你将在图像章节学习有关 h! 内容。它可以让你通过 `\centering` 命令使表格保持在页面中央。
+* Caption 用来写描述性的文字。 Label 用来进行标记。你将在图像章节继续学习这些内容。
+* Tabular 是最重要的部分。表格环境中往往需要包含一个 tabular 环境。
+  - 我们用 `{l|c||r}` 来控制表格的内部样式。这里我们发现：
+    * l , c , r 分别表示单元格内容是左对齐、居中、或右对齐的。
+    * 竖线 | 和 || 实际上是控制表格列中垂直线的边框格式。
+  - 1 & 2 & 3 => 1 2 3 是单元格的内容， & 用来分隔每行中的单元格内容。
+  -  `\hline` 实际上是用来添加一个水平线，用于分隔两行。
 
-:bangbang: **Tips**: You can use a package :package: called booktabs `\usepackage{booktabs}` for a visually better table.
+:bangbang: **小技巧** 你可以使用一个名叫 booktabs 的宏包 :package: 来获得更好的视觉效果。
 
-## Adding images
+## 添加图像
 
-To add an image to the LaTeX file, you need to use figure environment and the graphicx package. Use `\usepackage{graphicx}` and
+若想在 LaTeX 文件中添加图像，你需要使用图形环境和 graphicx 宏包。使用  `\usepackage{graphicx}` 和
 
 ```tex
 \begin{figure}
@@ -295,33 +289,33 @@ To add an image to the LaTeX file, you need to use figure environment and the gr
 \end{figure}
 ```
 
-:bangbang: **Tips**: Put [width=\linewidth] to scale the image to the width of the document. If you want to float the image, then you need to attribute the begin with a certain value. Also, the fig is for later reference so name it with care.
+:bangbang: **小技巧**: 用 [width=\linewidth] 将图像缩放到文档的宽度。 如果你想浮动图像，那么你需要用一个特定的值给开头赋值。fig 用来在后面被引用，所以需要仔细命名。
 
 ```tex
 \begin{figure}[h!]
 ```
 
-:passport_control: Legit values are:
+:passport_control: 合法的值有:
 
-- h (here) — same location
-- t (top) — top of page
-- b (bottom) — bottom of page
-- p (page) — on an extra page
-- ! (override) — will force the specified location
+* h (here) - 在当前位置(same location)
+* t (top) - 页首(top of page)
+* b (bottom) - 页尾(bottom of page)
+* p (page) - 另起一页(on an extra page)
+* ! (override) - 在指定位置(will force the specified location)
 
-Here's how the image is rendered:
+下图是图像呈现的样式:
 
 ![](http://i.imgur.com/ysY9MOb.png)
 
-## Insert code into LaTeX
+## 在 LaTeX 中插入代码
 
-#### :white_check_mark: First method :white_check_mark:
+#### :white_check_mark: 第一种方法 :white_check_mark:
 
-One aspect of text compiling that is of the utmost importance to programmers and developers is how to professionally insert codes into the document.
+对程序员和开发人员至关重要的一个方面是如何专业地将代码插入到文档中。
 
-For LaTeX, the process is simple and very professional. We just wrap the code with some predefined content, then we are good to go.
+在 LaTeX 中,这个过程简单且专业，我们只需使用一些预定义的标记来包裹这些代码，然后就可以了。
 
-Example:
+例如:
 
 ```tex
 \documentclass[a4paper]{article}
@@ -343,20 +337,19 @@ int main()
 \end{document}
 ```
 
-:speech_balloon: **LaTeX supports syntax for these languages** :speech_balloon:
+:speech_balloon: **LaTeX 支持这些语言的语法** :speech_balloon:
 
 ![](http://i.imgur.com/FJfj8Er.png)
 
-As you can see, with the **{verbatim}** wrapper you can easily insert code without worrying about how the syntax is formatted. Here is how it looks out of the box, clean and professional:
+如你所见，通过使用 **{verbatim}** 包裹，你可以轻松插入代码而不用担心语法的格式化问题。下图是它渲染的结果，干净、专业、开箱即用:
 
 ![](http://i.imgur.com/tpercup.png)
 
-#### :white_check_mark: :white_check_mark: Second Method :white_check_mark: :white_check_mark:
+#### :white_check_mark: :white_check_mark: 第二种方法 :white_check_mark: :white_check_mark:
 
-This method gives you more options, including insert code **inline**, make **custom styles** code, choose a **specific language** for code, **import code** **from** another **file** within the same directory.... With this method, you dont use **{verbatim}**, but include a package :package: named **listings**.
+这种方法让你有更多的选择，比如:插入代码**内联**,使用**自定义样式**的代码，选择**特定代码语言**,**从**同一目录(the same directory)中的其他文件**导入代码**...使用这个方法时，你无需使用 **{verbatim}** ，而需要包含名叫  **listings** 的宏包 :package: 。
 
-Consider the following example:
-
+思考下面这个样例：
 ```tex
 \documentclass[a4paper]{article}
 
@@ -390,25 +383,24 @@ Lorem ipsum dolor sit amet \lstinline{print "Hello World"} , consectetur adipisc
 \end{document}
 
 ```
+从这个例子中，你会发现:
 
-From this, you can see:
+1. 插入的代码块，从 `\begin{lstlisting}` 开始，以 `\end{lstlisting}` 结束。
+2. 你可以使用 `lstinputlisiting{name_of_file}` 来从同一目录(the same directory)下导入另一个文件的代码。
+3. 用 `[language=C++]` 来指定使用的语言。
+4. 想插入内联代码需要使用 `\lstinline`。
+5. 想应用自定义样式，需要使用 `\usepackage{color}` 然后用你自己的主题定义列表(请看下面的代码)。你可以使用自己的风格修改许多内容，但你需要阅读文档以获取正确的属性名称。
+6. 感兴趣？？查看[更多内容](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings)。
 
-1. To insert a code block, start with `\begin{lstlisting}` and end with `\end{lstlisting}`
-2. To import code from another file within the same directory, you can use `lstinputlisiting{name_of_file}`
-3. To specify a language for the code, use `[language=C++]`
-4. To insert inline code use `\lstinline`
-5. To apply custom styles, use the `\usepackage{color}` and define your own style then define the listing with your own theme (Please look at code below). You can modify many things with your own style, but you need to read the doc for the correct property name.
-6. Interested ?? More [here](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings).
-
-Here is how the code above compiles in TexMaker:
+以下是 TexMaker 中的代码如何编译的:
 
 ![](http://i.imgur.com/XwwDJNo.png)
 
-## Multiple files in LaTeX
+## 分割为多个 LaTeX 文件
 
-When we use LaTeX, we may face a problem that a document is too long to be handle. Therefore, we should divide the file so that its contents can be easily handled.
+当我们使用 LaTeX 时，我们可能因为一个文档太长而无法处理。因此，我们应该分割文件，使其内容可以轻松的处理。
 
-Let's look at the example:
+让我们看这个例子:
 
 ```tex
 % main.tex
@@ -423,7 +415,7 @@ Hello Latex, This is my second part.
 \end{document}
 ```
 
-It's just a normal LaTeX file. Now, let's divide the document into two parts using the `\input` keyword:
+这只是一个普通的 LaTeX 文件，让我们用 `\input` 关键字来将文件分成两个部分：
 
 ```tex
 % main.tex
@@ -438,56 +430,56 @@ Hello Latex, This is my first part.
 \end{document}
 ```
 
+
 ```tex
 % second_file.tex
 Hello Latex, This is my second part.
 ```
 
-Now the main file looks different, but better documented. Here is the result in TexMaker:
+现在，主文件看起来有些不同，当文件被更好地组织了。在 TexMaker 中的结果如下：
 
-![](https://camo.githubusercontent.com/e4d46edfad527c4c9be54cf8f1725c2fc52039d6/68747470733a2f2f7331342e706f7374696d672e6f72672f646567306b716875392f6d756c74695f66696c652e706e67)
+[![multi_file.png](https://s14.postimg.org/deg0kqhu9/multi_file.png)](https://postimg.org/image/hnkqmwl3h/)
 
-:bangbang: **Tips**: For readability, clarity and maintenance purpose, it is highly suggested that you divide your Main file systematically, hierarchically and scientifically. Don't divide without reasons or you may get a mess later.
+:bangbang: **小技巧** : 为了具有可读，清晰，便于维护的目的，强烈建议你将主文件系统性的，分级的，科学的分开。不要没有任何理由的分开，否则你会在以后感到困惑。
 
-## Additional Tools
+## 更多工具
 
-#### Distributions
+#### 版本(Distributions)
 
-- [MiKTeX](https://miktex.org/about) for Windows.
-- [TeX Live](https://www.tug.org/texlive/) for Linux and Unix-based.
-- [MacTeX](https://tug.org/mactex/) for macOS.
-- [ShareLaTeX](https://www.sharelatex.com/) — an online editor.
-- [Overleaf](https://www.overleaf.com/) — an collaborative online editor.
-- [StackEdit](https://stackedit.io/) — In-browser markdown editor.
+* [TeX Live](https://www.tug.org/texlive/) 适用于所有平台（包括 Windows、Linux 和基于 Unix 的系统）。
+* [MiKTeX](https://miktex.org/about) 适用于 Windows。
+* [MacTeX](https://tug.org/mactex/) 适用于 macOS。
+* [Overleaf](https://www.overleaf.com/) — 一个在线合作的编辑器。
+* [StackEdit](https://stackedit.io/) - 在浏览器中的 markdown 编辑器。
 
-#### LaTeX Editors
+#### LaTeX 编辑器
 
-- [TeXMaker](http://www.xm1math.net/texmaker/) Cross platform LaTeX editor.
-- [TeXStudio](http://www.texstudio.org/) An enhanced fork of TeXMaker with more features.
-- TeXShop and TeXworks (minimal editors)
+* [TeXMaker](http://www.xm1math.net/texmaker/) 跨平台的 LaTeX 编辑器。
+* [TeXStudio](http://www.texstudio.org/) 增强 TeXMaker 的更多功能( An enhanced fork of TeXMaker with more features)。
+* TeXShop and TeXworks (最简编辑器, TeX Live 自带)
 
-#### LaTeX Compilers
+#### LaTeX 编译器
 
-- Most editors will have an option for you to change the default compiler. Here's an example:
+大多数编译器有选项来改变默认编译器。这有一个例子:
 
 ![](http://i.imgur.com/FbNUiL7.png)
 
-## HOORAY!!
+## 哦耶 ！！
 
-:tada: Thank you for finishing the guide. That's basically all you need to know about LaTeX. :hammer:  
-If you are greatly interested, more on LaTeX can be found [here](http://www.latex-project.org/help/documentation/) or all over the web, depending on your need.
+:tada: 恭喜你完成了本指南。这是所有你需要了解的关于 LaTeX 的基本知识。 :hammer: 
+如果你有兴趣了解更多的 LaTeX 知识，点击[这里](http://www.latex-project.org/help/documentation/)或者可以在网上搜寻你需要的内容。
 
-## License
+## 版权许可
 
-[![](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-1.png)](http://www.wtfpl.net/)
+ [![](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-1.png)](http://www.wtfpl.net/)
 
 **DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE**
 Copyright (C) 2016 Luong Vo
-Everyone is permitted to copy and distribute verbatim or modified copies of this license document, and changing it is allowed as long as the name is changed.
-TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION: You just DO WHAT THE FUCK YOU WANT TO.
+每个人都被允许修改或分发本版权文件，并且只要更改文件名，就允许更改它(Changing it is allowed as long as the name is changed)。复制，分发和修改的条款和条件：你可以用来做任何你想做的。
 
-<div id='donation'/>
+
+<div id='donation'/>  
 
 [![](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5ZG5Z47L2ZGYC)
 
-A beer in your country can buy a meal in mine.
+您所在国家买一瓶啤酒所花的钱可以在作者那里买一顿饭。
